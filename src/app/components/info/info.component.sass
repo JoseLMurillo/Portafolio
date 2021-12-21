@@ -1,0 +1,33 @@
+@import "./../../../styles/colors.sass"
+
+#carousel
+    display: flex
+    overflow-x: auto
+    -ms-overflow-style: none //* Hide the scrollbar for MS Edge */
+    scrollbar-width: none //* Hide the scrollbar for Mozilla Firefox */
+
+    margin: 0 auto 0 auto
+    width: 95vw
+    height: fit-content
+    justify-content: space-between  //ESTE VALOR VARIA SEGUN SI ESTA EN CEL O NO
+
+    &::-webkit-scrollbar
+        display: none // Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+        -webkit-overflow-scrolling: touch // On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+
+.item
+    min-width: 200px
+    min-height: auto
+    margin: 15px
+
+    font-size: 2em
+    text-align: center
+    line-height: 100px
+    background-color: $black-gray
+    border-radius: 7px
+
+
+.html
+    background: url("./../../../assets/img/logos.svg") no-repeat 
+
+    //background: url("./../../../assets/img/angular-icon.svg") no-repeat 

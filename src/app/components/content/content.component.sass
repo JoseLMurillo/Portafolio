@@ -1,0 +1,35 @@
+@import "../../../styles/colors.sass"
+    
+.content-separator
+    display: flex
+    justify-content: space-around
+    background-color: $black-gray
+    
+    
+#carousel
+    display: block
+    overflow-x: auto
+    -ms-overflow-style: none //* Hide the scrollbar for MS Edge */
+    scrollbar-width: none //* Hide the scrollbar for Mozilla Firefox */
+    background-color: $black-gray
+    border-radius: 5px
+    //margin: 0 auto 0 auto
+    //width: 95vw
+    height: fit-content
+    justify-content: space-around  //ESTE VALOR VARIA SEGUN SI ESTA EN CEL O NO
+    box-shadow: 26px 21px 37px 0px rgba(0,0,0,0.75)
+
+    &::-webkit-scrollbar
+        display: none // Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+        -webkit-overflow-scrolling: touch // On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+
+.item
+    //min-width: 200px
+    //min-height: auto
+    margin: 15px
+    background-color: $black-gray
+    font-size: 2em
+    text-align: center
+    //line-height: 100px
+    border-radius: 7px
+
