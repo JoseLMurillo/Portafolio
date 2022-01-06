@@ -1,0 +1,6 @@
+<form action="submit">
+    <label>Usuario</label><br>
+    <input type="number" [formControl]="emailCtrl"><br>
+    <small *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">Este campo es requerido</small><br>
+    <button [disabled]="emailCtrl.invalid" type="button" (click)="getCC($event)">Enviar</button>
+</form>
