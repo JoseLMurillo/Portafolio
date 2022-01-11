@@ -10,6 +10,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { InfoComponent } from './components/info/info.component';
 import { ContentComponent } from './components/content/content.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { NewtaskComponent } from './components/task/newtask/newtask.component';
+import { TasksComponent } from './components/task/tasks/tasks.component';
+import { EdittaskComponent } from './components/task/edittask/edittask.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     InfoComponent,
     ContentComponent,
     CalendarComponent,
+    NewtaskComponent,
+    TasksComponent,
+    EdittaskComponent,
 
   ],
   imports: [

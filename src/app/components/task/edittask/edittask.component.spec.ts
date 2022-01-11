@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GtdComponent } from './gtd.component';
+import { EdittaskComponent } from './edittask.component';
 
-describe('GtdComponent', () => {
-  let component: GtdComponent;
-  let fixture: ComponentFixture<GtdComponent>;
+describe('EdittaskComponent', () => {
+  let component: EdittaskComponent;
+  let fixture: ComponentFixture<EdittaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GtdComponent ]
+      declarations: [ EdittaskComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GtdComponent);
+    fixture = TestBed.createComponent(EdittaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -43,6 +43,6 @@ export class LoginService {
 }
 
 export interface Usuario{
-  id?:string;
+  id_user?:string;
   sesion?:string;
 }

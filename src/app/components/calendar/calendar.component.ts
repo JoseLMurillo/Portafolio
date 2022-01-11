@@ -20,7 +20,7 @@ export class CalendarComponent implements OnInit {
   emailCtrl = new FormControl('', [Validators.required]);
 
   equipo: Usuario={
-    id:'',
+    id_user:'',
     sesion:'',
   };
 
@@ -42,6 +42,11 @@ export class CalendarComponent implements OnInit {
     );
   }
 
+  recargar(){
+    this.router.navigate(["/items"]);
+    this.listarEquipo();
+  }
+
   getEmail(event: Event){
     event.preventDefault();
 
@@ -55,9 +60,13 @@ export class CalendarComponent implements OnInit {
 
         //console.log(res);
         this.ListarUsuarios=<any>res;
+        this.recargar();
+        
       },
       err => console.log(err)
     );
+
+    
   }
 
   modificar(){
@@ -69,7 +78,7 @@ export class CalendarComponent implements OnInit {
 
     console.log(this.equipo.sesion);
 
-    this.LoginService.editUser(this.equipo.id, this.equipo).subscribe(
+    this.LoginService.editUser(this.equipo.id_user, this.equipo).subscribe(
       res=>{
         console.log(res);
       },

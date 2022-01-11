@@ -1,0 +1,28 @@
+<form action="" novalidate [formGroup]="task">
+    <p>Id</p>
+    <input type="number" formControlName="id_task">
+    <p>Nombre</p>
+    <input type="text" formControlName="nombre">
+    <p>Descripción</p>
+    <input type="text"  formControlName="description">
+    <p>Proyecto</p>
+    <input type="text"  formControlName="fk_proyecto">
+    <p>Fecha</p>
+    <input type="text"  formControlName="date">
+    <p>Realizado</p>
+    <input type="text"  formControlName="realizado">
+    <p>Prioridad</p>
+    <select name="prioridad" id="" formControlName="prioridad">
+      <option value="1">Importante - Urgente</option>
+      <option value="2">Importante - No Urgente</option>
+      <option value="3">Urgente - No Importante</option>
+      <option value="4">No Importante - No Urgente</option>
+    </select>
+    
+    <small *ngIf="task.get('nombre').hasError('required') && task.get('nombre').dirty">El campo NOMBRE es requerido </small>
+    <small *ngIf="task.get('description').hasError('required') && task.get('description').dirty">El campo DESCRIPCION es requerido </small>
+    <small *ngIf="task.get('prioridad').hasError('required') && task.get('prioridad').dirty">El campo PRIORIDAD es requerido </small>
+  
+    
+      <a routerLink="/tareas"><button type="submit" (click)="getEmail($event)" [disabled]="task.invalid">Enviar</button></a>
+  </form>
