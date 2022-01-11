@@ -5,32 +5,26 @@
 </form>
 
 <div class="container" >
-
+ 
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Logo</th>
+            <th scope="col">Sesion</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let equipo of ListarUsuario">
+          <tr *ngFor="let equipo of ListarUsuarios">
             <th>{{equipo.id}}</th>
-            <th>{{equipo.session_id}}</th>
-            
-            <!--
-            <td><img src="{{equipo.logo}}" alt="" width="50" height="50"> </td>
+            <th>{{equipo.sesion}}</th>
+        
             <td>
-                <button (click)="modificar(equipo.id_user)" type="button" class="btn btn-primary">Editar</button>
+                <button (click)="modificar()" type="button" class="btn btn-primary">Editar</button>
             </td>
-            <td>
-                <button (click)="eliminar(equipo.id_user)" type="button" class="btn btn-danger">Eliminar</button>
-            </td> -->
           </tr>
         </tbody>
       </table>
-
 </div>
+

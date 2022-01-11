@@ -10,7 +10,7 @@
           "style": "sass"
         },
         "@schematics/angular:application": {
-          "strict": true
+          "strict": false
         }
       },
       "root": "",
@@ -70,6 +70,8 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"},
           "configurations": {
             "production": {
               "browserTarget": "PORTAFOLIO:build:production"

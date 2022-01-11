@@ -5,3 +5,10 @@ create table info-components (
   PRIMARY KEY (id),
   INDEX (owner, date)
 );
+
+create database GTD 
+)
+
+user
+id INT
+claves INT
