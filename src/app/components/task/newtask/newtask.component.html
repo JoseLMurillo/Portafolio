@@ -1,16 +1,16 @@
 <form action="" novalidate [formGroup]="task">
-    <p>Id</p>
-    <input type="number" formControlName="id_task">
+    <!-- <p>Id</p>
+    <input type="number" formControlName="id_task"> -->
     <p>Nombre</p>
     <input type="text" formControlName="nombre">
     <p>Descripción</p>
     <input type="text"  formControlName="description">
-    <p>Proyecto</p>
+    <p>Proyecto || PROYECTO DEBERIA DE PRECARGAR UNA LLAMADA A BD PARA TRAER TODOS LOS PROYECTOS O AGREGAR UNO NUEVO</p>
     <input type="text"  formControlName="fk_proyecto">
     <p>Fecha</p>
-    <input type="text"  formControlName="date">
+    <input type="date"  formControlName="date">
     <p>Realizado</p>
-    <input type="text"  formControlName="realizado">
+    <input type="checkbox"  formControlName="realizado">
     <p>Prioridad</p>
     <select name="prioridad" id="" formControlName="prioridad">
       <option value="1">Importante - Urgente</option>
@@ -24,5 +24,5 @@
     <small *ngIf="task.get('prioridad').hasError('required') && task.get('prioridad').dirty">El campo PRIORIDAD es requerido </small>
   
     
-      <a routerLink="/tareas"><button type="submit" (click)="getEmail($event)" [disabled]="task.invalid">Enviar</button></a>
+      <a routerLink="/nuevatareas"><button type="submit" (click)="addTask($event)" [disabled]="task.invalid">Enviar</button></a>
   </form>

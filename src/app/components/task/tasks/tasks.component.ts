@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import {TodoService, Task} from 'src/app/services/todo.service';
+import {TaskService, Task} from 'src/app/services/task.service';
 
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -25,7 +25,7 @@ export class TasksComponent implements OnInit {
     prioridad:'',
   };
 
-  constructor(private TodoService:TodoService, private router:Router) { }
+  constructor(private TaskService:TaskService, private router:Router) { }
 
   ngOnInit(): void {
     this.listarEquipo();
@@ -33,7 +33,7 @@ export class TasksComponent implements OnInit {
 
   listarEquipo()
   {
-    this.TodoService.getTask().subscribe(
+    this.TaskService.getTask().subscribe(
       res=>{
         console.log(res);
         this.ListarUsuarios=<any>res;
@@ -47,9 +47,7 @@ export class TasksComponent implements OnInit {
     console.log(id);
     this.router.navigate(['/edit/'+id]);
 
-    
-
-    /* this.TodoService.editTask(this.task.value.id_task, this.task.value).subscribe(
+    /* this.TaskService.editTask(this.task.value.id_task, this.task.value).subscribe(
       res=>{
         console.log(res);
       },
@@ -57,7 +55,18 @@ export class TasksComponent implements OnInit {
     ); */
   }
 
-  eliminar(){
-    
+  delete(id:string)
+  {
+    this.TaskService.deleteTask(id).subscribe(
+      res=>{
+        console.log(res);
+        this.recargar();
+      },
+      err=> console.log(err)
+      );
+  }
+
+  recargar(){
+    this.router.navigate(["/calendar"]);
   }
 }

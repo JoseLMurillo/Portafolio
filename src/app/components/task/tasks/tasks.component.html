@@ -1,7 +1,8 @@
 <p>Notas:
-    Crear diferentes componentes para agregar, editar, organizar, eliminar las Tareas
+    organizar, eliminar las Tareas
     Mostrar un calendario en GTD
     Cargar las sesiones de usuario
+    Para que la base de datos no se llene con los id, crear un analizador para saber si hay ids libres y ocuparlos
   
   </p>
   
@@ -10,7 +11,7 @@
       <table class="table">
           <thead>
             <tr>
-              <th scope="col">Id</th>
+              <!-- <th scope="col">Id</th> -->
               <th scope="col">Nombre</th>
               <th scope="col">Descripción</th>
               <th scope="col">Fecha</th>
@@ -23,17 +24,21 @@
           </thead>
           <tbody>
             <tr *ngFor="let equipo of ListarUsuarios">
-              <th>{{equipo.id_task}}</th>
+              <!-- <th>{{equipo.id_task}}</th> -->
               <th>{{equipo.nombre}}</th>
               <th>{{equipo.description}}</th>
               <th>{{equipo.date}}</th>
-              <th>{{equipo.realizado}}</th>
+              <th>
+                <input type="checkbox" *ngIf="equipo.realizado" checked disabled>
+                <input type="checkbox" *ngIf="equipo.realizado=='0'" disabled>
+              </th> 
+              <!-- <th>{{equipo.realizado}}</th> -->
               <th>{{equipo.fk_proyecto}}</th>
               <th>{{equipo.prioridad}}</th>
           
               <td>
                   <button (click)="modificar(equipo.id_task)" type="button" class="btn btn-primary">Editar</button>
-                  <button type="button" class="btn btn-primary">Eliminar</button>
+                  <button (click)="delete(equipo.id_task)" type="button" class="btn btn-primary">Eliminar</button>
               </td>
             </tr>
           </tbody>

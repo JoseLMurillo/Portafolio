@@ -4,7 +4,7 @@ import { HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class TodoService {
+export class TaskService {
 
   url='/api2';
 

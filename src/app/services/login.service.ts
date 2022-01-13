@@ -36,8 +36,8 @@ export class LoginService {
   }
 
   //modificar equipo
-  editUser(id:string, equipo:Usuario){
-    return this.http.put(this.url+'/'+id, equipo);
+  editUser(id_user:string, equipo:Usuario){
+    return this.http.put(this.url+'/'+id_user, equipo);
   }
 
 }

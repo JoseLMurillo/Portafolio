@@ -1,37 +1,54 @@
-<div class="container" >
-   
+<div class="container">
+  <form action="" novalidate [formGroup]="task">
+
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Realizado</th>
-            <th scope="col">Proyecto</th>
-            <th scope="col">Prioridad</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let equipo of ListarUsuarios">
-            <th>{{equipo.id_task}}</th>
-            <th>{{equipo.nombre}}</th>
-            <th>{{equipo.description}}</th>
-            <th>{{equipo.date}}</th>
-            <th>{{equipo.realizado}}</th>
-            <th>{{equipo.fk_proyecto}}</th>
-            <th>{{equipo.prioridad}}</th>
-        
-            <td>
-                <button (click)="modificar(equipo.id_task)" type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-primary">Eliminar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <!-- <th scope="col">Id</th> -->
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Realizado</th>
+          <th scope="col">Proyecto</th>
+          <th scope="col">Prioridad</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let equipo of ListarUsuarios">
+          <!-- <th>{{equipo.id_task}}</th> -->
+          <th><input type="text" value="{{equipo.nombre}}" formControlName="nombre">
+          <th><input type="text" value="{{equipo.description}}" formControlName="description"></th>
+          <th><input type="text" value="{{equipo.date}}" formControlName="date"></th>
+          <th>
+            <input type="checkbox" *ngIf="equipo.realizado=='0'" formControlName="realizado">
+            <input type="checkbox" *ngIf="equipo.realizado" checked formControlName="realizado">
+          </th>
+          <th><input type="text" value="{{equipo.fk_proyecto}}" formControlName="fk_proyecto"></th>
+          <th><input type="text" value="{{equipo.prioridad}}" formControlName="prioridad"></th>
+          <th>
+            <select name="prioridad" id="" formControlName="prioridad">
+              <option value="1">Importante - Urgente</option>
+              <option value="2">Importante - No Urgente</option>
+              <option value="3">Urgente - No Importante</option>
+              <option value="4">No Importante - No Urgente</option>
+            </select>
+          </th>
+
+          <td>
+            <button type="submit" (click)="getTask($event)" [disabled]="task.invalid">Editar</button>
+            <button type="button" (click)="delete(equipo.id_task)" class="btn btn-primary">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+    <small *ngIf="task.get('nombre').hasError('required') && task.get('nombre').dirty">El campo NOMBRE es requerido </small>
+    <small *ngIf="task.get('description').hasError('required') && task.get('description').dirty">El campo DESCRIPCION es requerido </small>
+    <small *ngIf="task.get('prioridad').hasError('required') && task.get('prioridad').dirty">El campo PRIORIDAD es requerido </small>
+  
+    
+  </form>
 </div> 
-
-
-<a routerLink="/nuevatareas"><button type="button">Nueva</button></a>

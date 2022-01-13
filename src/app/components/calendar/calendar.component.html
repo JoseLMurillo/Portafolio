@@ -1,30 +1,25 @@
 <form action="">
-    <input type="number" [formControl]="emailCtrl">
-    <small *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">El campo es requerido</small>
-    <button type="button" (click)="getEmail($event)" [disabled]="emailCtrl.invalid">Enviar</button>
+    <input type="number" [formControl]="id_user">
+    <small *ngIf="id_user.hasError('required') && id_user.dirty">El campo es requerido</small>
+    <a routerLink="/tareas"><button type="button" (click)="getUser($event)" [disabled]="id_user.invalid">Enviar</button>
+    </a>
 </form>
 
-<div class="container" >
+<!-- <div class="container" >
  
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Sesion</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let equipo of ListarUsuarios">
             <th>{{equipo.id_user}}</th>
             <th>{{equipo.sesion}}</th>
-        
-            <td>
-                <button (click)="modificar()" type="button" class="btn btn-primary">Editar</button>
-            </td>
           </tr>
         </tbody>
       </table>
-</div>
+</div> -->
 

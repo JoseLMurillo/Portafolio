@@ -1,5 +1,4 @@
-import { Task } from './services/todo.service';
-//import {GtdComponent} from "./components/gtd/gtd.component"
+import { Task } from './services/task.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CalendarComponent} from './components/calendar/calendar.component';
